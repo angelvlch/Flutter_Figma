@@ -1,3 +1,4 @@
+import 'package:figma/tmy_font_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -32,7 +33,7 @@ class MyAppBar extends StatelessWidget {
                   ),
                   Icon(
                     Icons.chevron_right_sharp,
-                    color: Color.fromRGBO(74, 114, 255, 1.0),
+                    color: MyFontStyle.blueColor,
                   ),
                 ],
               ),

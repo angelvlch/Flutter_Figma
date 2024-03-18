@@ -1,3 +1,5 @@
+import 'package:figma/data_widget.dart';
+import 'package:figma/grid_widget.dart';
 import 'package:figma/my_app_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +17,25 @@ class _MainScreenState extends State<MainScreen> {
       appBar: AppBar(
         //backgroundColor: Colors.green,
         title: MyAppBar(),
+      ),
+      body: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: 8,
+              ),
+              child: DataWidget(),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: 8,
+              ),
+              child: GridWidget(),
+            ),
+          ],
+        ),
       ),
     );
   }
