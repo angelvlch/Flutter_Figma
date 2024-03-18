@@ -1,5 +1,5 @@
 import 'package:figma/configs/routes.dart';
-import 'package:figma/presentation/main/mainscreen.dart';
+import 'package:figma/mainscreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
