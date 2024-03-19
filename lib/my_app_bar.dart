@@ -27,6 +27,7 @@ class MyAppBar extends StatelessWidget {
                   Text(
                     'Проход 456а',
                     style: TextStyle(
+                      fontFamily: 'Nuntino',
                       fontSize: 18,
                       fontWeight: FontWeight.w700,
                     ),
@@ -47,7 +48,7 @@ class MyAppBar extends StatelessWidget {
               Positioned(
                 bottom: 0,
                 child: SvgPicture.asset(
-                  'assets/Icon.svg',
+                  'assets/icons/Icon.svg',
                   width: 24,
                   height: 24,
                 ),
@@ -63,7 +64,7 @@ class MyAppBar extends StatelessWidget {
                   child: const Center(
                     child: Text(
                       '2',
-                      TextStyle(
+                      style: TextStyle(
                           fontFamily: 'Nuntino',
                           fontSize: 12,
                           color: Colors.white),
