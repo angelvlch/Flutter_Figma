@@ -61,8 +61,13 @@ class MyAppBar extends StatelessWidget {
                     color: Color.fromRGBO(255, 87, 77, 1),
                   ),
                   child: const Center(
-                    child: Text('2',
-                        style: TextStyle(fontSize: 12, color: Colors.white)),
+                    child: Text(
+                      '2',
+                      TextStyle(
+                          fontFamily: 'Nuntino',
+                          fontSize: 12,
+                          color: Colors.white),
+                    ),
                   ),
                 ),
               )

@@ -19,18 +19,19 @@ class _MainScreenState extends State<MainScreen> {
         title: MyAppBar(),
       ),
       body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
         child: Column(
           children: [
             Padding(
               padding: EdgeInsets.symmetric(
                 vertical: 8,
+                horizontal: 2,
               ),
               child: DataWidget(),
             ),
             Padding(
               padding: EdgeInsets.symmetric(
-                vertical: 8,
+                vertical: 6,
               ),
               child: GridWidget(),
             ),
