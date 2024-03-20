@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class AddButton extends StatelessWidget {
+class Button extends StatelessWidget {
   final buttonColor;
   final buttonIcon;
   final buttonTitle;
-  const AddButton(
+  const Button(
       {super.key, this.buttonTitle, this.buttonColor, this.buttonIcon});
   @override
   Widget build(BuildContext context) {
@@ -14,11 +14,15 @@ class AddButton extends StatelessWidget {
         horizontal: 12,
         vertical: 16,
       ),
-      color: buttonColor,
+      decoration: BoxDecoration(
+          color: buttonColor, borderRadius: BorderRadius.circular(12)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SvgPicture.asset(buttonIcon),
+          SizedBox(
+            height: 8,
+          ),
           Text(
             buttonTitle,
             style: TextStyle(
