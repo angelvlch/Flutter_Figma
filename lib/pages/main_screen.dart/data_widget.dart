@@ -1,4 +1,4 @@
-import 'package:figma/tmy_font_style.dart';
+import 'package:figma/configs/font_style.dart';
 import 'package:flutter/material.dart';
 
 class DataWidget extends StatelessWidget {

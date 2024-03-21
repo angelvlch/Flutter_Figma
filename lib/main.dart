@@ -1,5 +1,6 @@
 import 'package:figma/configs/routes.dart';
-import 'package:figma/mainscreen.dart';
+import 'package:figma/pages/main_screen.dart/mainscreen.dart';
+import 'package:figma/pages/select_product/select_product_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +12,7 @@ class App extends StatelessWidget {
 
   Map<String, WidgetBuilder> get _routes {
     return {
-      Routes.mainScreen: (context) => const MainScreen(),
+      Routes.mainScreen: (context) => const SelectProductScreen(),
     };
   }
 

@@ -1,9 +1,12 @@
-import 'package:figma/data_widget.dart';
-import 'package:figma/grid_widget.dart';
-import 'package:figma/my_app_bar.dart';
-import 'package:figma/three_buttons.dart';
-import 'package:figma/widgets/button.dart';
+import 'package:figma/pages/main_screen.dart/data_widget.dart';
+import 'package:figma/pages/main_screen.dart/grid_widget.dart';
+import 'package:figma/pages/main_screen.dart/my_app_bar.dart';
+import 'package:figma/pages/main_screen.dart/three_buttons.dart';
+import 'package:figma/configs/font_style.dart';
+import 'package:figma/pages/main_screen.dart/widgets/button.dart';
+import 'package:figma/pages/main_screen.dart/widgets/menu.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -77,6 +80,39 @@ class _MainScreenState extends State<MainScreen> {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        elevation: 0,
+        selectedFontSize: 12,
+        selectedLabelStyle: TextStyle(
+          color: Colors.black,
+        ),
+        items: [
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/icons/home.svg',
+              height: 18.73,
+              width: 18,
+            ),
+            label: 'Главная',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/icons/shopping.svg',
+              height: 18.73,
+              width: 18,
+            ),
+            label: 'Товары',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/icons/marker.svg',
+              height: 18.73,
+              width: 18,
+            ),
+            label: 'Магазин',
+          ),
+        ],
       ),
     );
   }
