@@ -29,9 +29,12 @@ class _SelectProductScreenState extends State<SelectProductScreen> {
         children: [
           const SearchWidget(),
           const ContainerChips(),
-          ListView.builder(
-            itemCount: 4,
-            itemBuilder: (context, index) => ClothesCard(index: index),
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: 4,
+              itemBuilder: (context, index) => ClothesCard(index: index),
+            ),
           ),
         ],
       ),

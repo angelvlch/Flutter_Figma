@@ -1,6 +1,7 @@
 import 'package:figma/configs/font_style.dart';
 import 'package:figma/configs/foto.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class ClothesCard extends StatefulWidget {
   final index;
@@ -17,7 +18,6 @@ class _ClothesCardState extends State<ClothesCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        // height: 154,
         margin: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
         padding: const EdgeInsets.all(12),
         decoration: decoration(),
@@ -76,7 +76,15 @@ class _ClothesCardState extends State<ClothesCard> {
                             ),
                           )
                         ],
-                      )
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            child: SvgPicture.asset('assets/icons/stock.svg'),
+                          )
+                        ],
+                      ),
                     ],
                   ),
                 )
