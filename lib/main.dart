@@ -12,7 +12,8 @@ class App extends StatelessWidget {
 
   Map<String, WidgetBuilder> get _routes {
     return {
-      Routes.mainScreen: (context) => const SelectProductScreen(),
+      Routes.mainScreen: (context) => const MainScreen(),
+      Routes.selectProductScreen: (context) => const SelectProductScreen(),
     };
   }
 

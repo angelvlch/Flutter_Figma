@@ -5,6 +5,7 @@ import 'package:figma/pages/main_screen.dart/three_buttons.dart';
 import 'package:figma/configs/font_style.dart';
 import 'package:figma/pages/main_screen.dart/widgets/button.dart';
 import 'package:figma/pages/main_screen.dart/widgets/menu.dart';
+import 'package:figma/pages/select_product/select_product_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -83,6 +84,14 @@ class _MainScreenState extends State<MainScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0,
+        onTap: (value) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const SelectProductScreen(),
+            ),
+          );
+        },
         selectedFontSize: 12,
         selectedLabelStyle: TextStyle(
           color: Colors.black,

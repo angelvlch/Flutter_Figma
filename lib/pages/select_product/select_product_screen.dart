@@ -11,12 +11,6 @@ class SelectProductScreen extends StatefulWidget {
 }
 
 class _SelectProductScreenState extends State<SelectProductScreen> {
-  static const listWithClothes = [
-    'assets/icons/t-shirt.svg',
-    'assets/icons/sweater.svg',
-    'assets/icons/hoodie.svg',
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,9 +30,8 @@ class _SelectProductScreenState extends State<SelectProductScreen> {
           const SearchWidget(),
           const ContainerChips(),
           ListView.builder(
-            itemCount: listWithClothes.length,
-            itemBuilder: (context, index) =>
-                ClothesCard(listWithClothes[index]),
+            itemCount: 4,
+            itemBuilder: (context, index) => ClothesCard(index: index),
           ),
         ],
       ),
