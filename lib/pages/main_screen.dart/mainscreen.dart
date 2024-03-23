@@ -7,6 +7,7 @@ import 'package:figma/pages/main_screen.dart/widgets/button.dart';
 import 'package:figma/pages/main_screen.dart/widgets/menu.dart';
 import 'package:figma/pages/select_product/select_product_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 
 class MainScreen extends StatefulWidget {
@@ -52,16 +53,24 @@ class _MainScreenState extends State<MainScreen> {
             ),
             Container(
               padding: EdgeInsets.symmetric(vertical: 8),
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Flexible(
                     // flex: 1,
                     fit: FlexFit.tight,
-                    child: Button(
-                      buttonColor: Color.fromRGBO(74, 114, 255, 1),
-                      buttonTitle: 'Добавить',
-                      buttonIcon: 'assets/icons/plus.svg',
+                    child: GestureDetector(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SelectProductScreen(),
+                        ),
+                      ),
+                      child: Button(
+                        buttonColor: Color.fromRGBO(74, 114, 255, 1),
+                        buttonTitle: 'Добавить',
+                        buttonIcon: 'assets/icons/plus.svg',
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -84,14 +93,6 @@ class _MainScreenState extends State<MainScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0,
-        onTap: (value) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const SelectProductScreen(),
-            ),
-          );
-        },
         selectedFontSize: 12,
         selectedLabelStyle: TextStyle(
           color: Colors.black,

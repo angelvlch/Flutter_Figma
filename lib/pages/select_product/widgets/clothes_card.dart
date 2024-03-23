@@ -14,7 +14,7 @@ class ClothesCard extends StatefulWidget {
 
 class _ClothesCardState extends State<ClothesCard> {
   bool? isChecked = false;
-
+  late List<int> selectedItem;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -144,5 +144,15 @@ class _ClothesCardState extends State<ClothesCard> {
     setState(() {
       isChecked = value;
     });
+    if (isChecked!) {
+      showBottomSheet(
+          context: context,
+          builder: (context) {
+            return SizedBox(
+              height: 72,
+              width: MediaQuery.sizeOf(context).width,
+            );
+          });
+    }
   }
 }
