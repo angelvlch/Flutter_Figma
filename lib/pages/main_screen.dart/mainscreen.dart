@@ -2,12 +2,11 @@ import 'package:figma/pages/main_screen.dart/data_widget.dart';
 import 'package:figma/pages/main_screen.dart/grid_widget.dart';
 import 'package:figma/pages/main_screen.dart/my_app_bar.dart';
 import 'package:figma/pages/main_screen.dart/three_buttons.dart';
-import 'package:figma/configs/font_style.dart';
+
 import 'package:figma/pages/main_screen.dart/widgets/button.dart';
-import 'package:figma/pages/main_screen.dart/widgets/menu.dart';
+
 import 'package:figma/pages/select_product/select_product_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 
 class MainScreen extends StatefulWidget {
@@ -23,10 +22,10 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
         //backgroundColor: Colors.green,
-        title: MyAppBar(),
+        title: const MyAppBar(),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 14, vertical: 0),
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 0),
         child: Column(
           children: [
             const Padding(
@@ -37,22 +36,22 @@ class _MainScreenState extends State<MainScreen> {
               child: DataWidget(),
             ),
             Container(
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 vertical: 6,
               ),
-              margin: EdgeInsets.only(bottom: 8),
-              child: GridWidget(),
+              margin: const EdgeInsets.only(bottom: 8),
+              child: const GridWidget(),
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 8),
+              margin: const EdgeInsets.only(bottom: 8),
               decoration: BoxDecoration(
-                color: Color.fromRGBO(246, 247, 249, 1),
+                color: const Color.fromRGBO(246, 247, 249, 1),
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: ThreeButtons(),
+              child: const ThreeButtons(),
             ),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 8),
+              padding: const EdgeInsets.symmetric(vertical: 8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -66,17 +65,17 @@ class _MainScreenState extends State<MainScreen> {
                           builder: (context) => const SelectProductScreen(),
                         ),
                       ),
-                      child: Button(
+                      child: const Button(
                         buttonColor: Color.fromRGBO(74, 114, 255, 1),
                         buttonTitle: 'Добавить',
                         buttonIcon: 'assets/icons/plus.svg',
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 8,
                   ),
-                  Flexible(
+                  const Flexible(
                     //flex: 1,
                     fit: FlexFit.tight,
                     child: Button(
@@ -94,7 +93,7 @@ class _MainScreenState extends State<MainScreen> {
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0,
         selectedFontSize: 12,
-        selectedLabelStyle: TextStyle(
+        selectedLabelStyle: const TextStyle(
           color: Colors.black,
         ),
         items: [

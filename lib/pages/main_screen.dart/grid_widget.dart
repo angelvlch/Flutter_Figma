@@ -1,8 +1,7 @@
 import 'package:figma/pages/main_screen.dart/widgets/block_card.dart';
-import 'package:figma/configs/font_style.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/svg.dart';
 
 class GridWidget extends StatelessWidget {
   const GridWidget({super.key});

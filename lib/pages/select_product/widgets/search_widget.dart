@@ -1,6 +1,5 @@
-import 'package:figma/main.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:flutter_svg/svg.dart';
 
 class SearchWidget extends StatefulWidget {

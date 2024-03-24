@@ -33,7 +33,10 @@ class BlockCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(price, style: TextStyle(fontSize: 18)),
-                SvgPicture.asset(iconPath),
+                SvgPicture.asset(
+                  iconPath,
+                  color: const Color.fromRGBO(28, 34, 43, 1),
+                ),
               ],
             ),
           ],

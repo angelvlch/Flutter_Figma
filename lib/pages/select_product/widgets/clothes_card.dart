@@ -1,5 +1,6 @@
 import 'package:figma/configs/font_style.dart';
 import 'package:figma/configs/foto.dart';
+import 'package:figma/pages/count_items/count_items_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -18,7 +19,7 @@ class _ClothesCardState extends State<ClothesCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+        margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
         padding: const EdgeInsets.all(12),
         decoration: decoration(),
         child: Column(
@@ -29,13 +30,13 @@ class _ClothesCardState extends State<ClothesCard> {
             Row(
               children: [
                 Image.asset(Foto.listPathFoto[widget.index]),
-                SizedBox(
+                const SizedBox(
                   width: 12,
                 ),
                 Expanded(
                   child: Column(
                     children: [
-                      Text('Off-white, Футболка из рельефной ткани'),
+                      const Text('Off-white, Футболка из рельефной ткани'),
                       const SizedBox(height: 8),
                       Row(
                         children: [
@@ -43,7 +44,7 @@ class _ClothesCardState extends State<ClothesCard> {
                             height: 8,
                             width: 8,
                             decoration: BoxDecoration(
-                                color: Color.fromRGBO(29, 180, 105, 1),
+                                color: const Color.fromRGBO(29, 180, 105, 1),
                                 borderRadius: BorderRadius.circular(20)),
                           ),
                           const SizedBox(width: 4),
@@ -56,7 +57,7 @@ class _ClothesCardState extends State<ClothesCard> {
                             height: 8,
                             width: 8,
                             decoration: BoxDecoration(
-                                color: Color.fromRGBO(127, 86, 248, 1),
+                                color: const Color.fromRGBO(127, 86, 248, 1),
                                 borderRadius: BorderRadius.circular(20)),
                           ),
                           const SizedBox(width: 4),
@@ -77,12 +78,32 @@ class _ClothesCardState extends State<ClothesCard> {
                           )
                         ],
                       ),
+                      const SizedBox(
+                        height: 4,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
                             child: SvgPicture.asset('assets/icons/stock.svg'),
-                          )
+                          ),
+                          const Text(
+                            'Склад',
+                            style: TextStyle(
+                              fontFamily: MyFontStyle.fontFamily,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 125,
+                          ),
+                          const Text('120',
+                              style: TextStyle(
+                                fontFamily: MyFontStyle.fontFamily,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 14,
+                              )),
                         ],
                       ),
                     ],
@@ -144,15 +165,109 @@ class _ClothesCardState extends State<ClothesCard> {
     setState(() {
       isChecked = value;
     });
-    if (isChecked!) {
-      showBottomSheet(
-          context: context,
-          builder: (context) {
-            return SizedBox(
-              height: 72,
-              width: MediaQuery.sizeOf(context).width,
-            );
-          });
-    }
+
+    showBottomSheet(
+        context: context,
+        builder: (context) {
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                height: 1,
+                color: Colors.grey.shade300,
+              ),
+              Container(
+                height: 72,
+                color: Colors.white,
+                width: MediaQuery.sizeOf(context).width,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Stack(
+                      children: [
+                        CircleAvatar(
+                          radius: 20,
+                          backgroundColor: Colors.white,
+                          child: CircleAvatar(
+                            radius: 18,
+                            backgroundImage:
+                                AssetImage(Foto.listPathFoto.first),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 32),
+                          child: CircleAvatar(
+                            radius: 20,
+                            backgroundColor: Colors.white,
+                            child: CircleAvatar(
+                              radius: 18,
+                              backgroundImage: AssetImage(Foto.listPathFoto[1]),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 64),
+                          child: CircleAvatar(
+                            radius: 20,
+                            backgroundColor: Colors.white,
+                            child: CircleAvatar(
+                              radius: 18,
+                              backgroundImage: AssetImage(Foto.listPathFoto[2]),
+                            ),
+                          ),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 95, bottom: 14),
+                          child: CircleAvatar(
+                            radius: 13,
+                            backgroundColor: Colors.white,
+                            child: CircleAvatar(
+                              radius: 11,
+                              backgroundColor: Colors.blue,
+                              child: Text(
+                                '+2',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 12,
+                                    color: Colors.white),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const CountItemsScreen(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: Colors.amber,
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 12),
+                          child: const Row(children: [
+                            Text(
+                              'Выбрать 5 ',
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w600),
+                            ),
+                            Icon(Icons.chevron_right_sharp),
+                          ]),
+                        ))
+                  ],
+                ),
+              ),
+            ],
+          );
+        });
   }
 }
