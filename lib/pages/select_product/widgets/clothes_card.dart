@@ -1,13 +1,14 @@
 import 'package:figma/configs/font_style.dart';
-import 'package:figma/configs/foto.dart';
-import 'package:figma/pages/count_items/count_items_screen.dart';
+
+import 'package:figma/models/product.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ClothesCard extends StatefulWidget {
-  final index;
-
-  const ClothesCard({super.key, this.index});
+  final Product product;
+  final void Function(bool? value) onChange;
+  const ClothesCard({super.key, required this.product, required this.onChange});
 
   @override
   State<ClothesCard> createState() => _ClothesCardState();
@@ -15,7 +16,13 @@ class ClothesCard extends StatefulWidget {
 
 class _ClothesCardState extends State<ClothesCard> {
   bool? isChecked = false;
-  late List<int> selectedItem;
+
+  void onChange(bool? value) {
+    setState(() {
+      widget.product.isSelected = value!;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,14 +36,14 @@ class _ClothesCardState extends State<ClothesCard> {
             const SizedBox(height: 12),
             Row(
               children: [
-                Image.asset(Foto.listPathFoto[widget.index]),
+                Image.asset(widget.product.image),
                 const SizedBox(
                   width: 12,
                 ),
                 Expanded(
                   child: Column(
                     children: [
-                      const Text('Off-white, Футболка из рельефной ткани'),
+                      Text(widget.product.name),
                       const SizedBox(height: 8),
                       Row(
                         children: [
@@ -48,8 +55,8 @@ class _ClothesCardState extends State<ClothesCard> {
                                 borderRadius: BorderRadius.circular(20)),
                           ),
                           const SizedBox(width: 4),
-                          const Text(
-                            '500 ₽',
+                          Text(
+                            '${widget.product.buyCost}',
                             style: TextStyle(fontSize: 16),
                           ),
                           const SizedBox(width: 16),
@@ -61,15 +68,15 @@ class _ClothesCardState extends State<ClothesCard> {
                                 borderRadius: BorderRadius.circular(20)),
                           ),
                           const SizedBox(width: 4),
-                          const Text(
-                            '1 200 ₽',
+                          Text(
+                            '${widget.product.sellCost}',
                             style: TextStyle(fontSize: 16),
                           ),
                           const SizedBox(width: 16),
-                          const Expanded(
+                          Expanded(
                             child: Text(
-                              '54шт',
-                              style: TextStyle(
+                              '${widget.product.count}',
+                              style: const TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w700,
                               ),
@@ -98,8 +105,8 @@ class _ClothesCardState extends State<ClothesCard> {
                           const SizedBox(
                             width: 125,
                           ),
-                          const Text('120',
-                              style: TextStyle(
+                          Text('${widget.product.stockCount}',
+                              style: const TextStyle(
                                 fontFamily: MyFontStyle.fontFamily,
                                 fontWeight: FontWeight.w600,
                                 fontSize: 14,
@@ -119,8 +126,8 @@ class _ClothesCardState extends State<ClothesCard> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text(
-          '№54931',
+        Text(
+          widget.product.id,
           style: TextStyle(
             fontFamily: MyFontStyle.fontFamily,
             fontSize: 16,
@@ -134,8 +141,8 @@ class _ClothesCardState extends State<ClothesCard> {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
             activeColor: const Color.fromRGBO(74, 114, 255, 1),
-            value: isChecked,
-            onChanged: (value) => change(value),
+            value: widget.product.isSelected,
+            onChanged: widget.onChange,
           ),
         ),
       ],
@@ -147,7 +154,9 @@ class _ClothesCardState extends State<ClothesCard> {
       color: Colors.white,
       border: Border.all(
         width: 1,
-        color: isChecked! ? Color.fromRGBO(74, 114, 255, 1) : Colors.white,
+        color: widget.product.isSelected
+            ? Color.fromRGBO(74, 114, 255, 1)
+            : Colors.white,
       ),
       borderRadius: BorderRadius.circular(8),
       boxShadow: const [
@@ -161,12 +170,8 @@ class _ClothesCardState extends State<ClothesCard> {
     );
   }
 
-  void change(bool? value) {
-    setState(() {
-      isChecked = value;
-    });
-
-    showBottomSheet(
+  /*  showBottomSheet(
+        enableDrag: false,
         context: context,
         builder: (context) {
           return Column(
@@ -269,5 +274,5 @@ class _ClothesCardState extends State<ClothesCard> {
             ],
           );
         });
-  }
+   */
 }

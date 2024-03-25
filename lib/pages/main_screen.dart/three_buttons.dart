@@ -8,36 +8,33 @@ class ThreeButtons extends StatelessWidget {
 // вынести все в виджет
   @override
   Widget build(BuildContext context) {
-    return const Expanded(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Padding(
-            padding: EdgeInsets.all(12),
-            child: MyWidget(
-                iconPath: 'assets/icons/calendar.svg',
-                title: 'История\nпродаж'),
-          ),
-          Padding(
-            padding: EdgeInsets.all(12),
-            child: MyWidget(
-                iconPath: 'assets/icons/users.svg', title: 'Список\nдолжников'),
-          ),
-          Padding(
-            padding: EdgeInsets.all(12),
-            child: MyWidget(
-                iconPath: 'assets/icons/file-plus.svg', title: 'Мои\nрасходы'),
-          ),
-        ],
-      ),
+    return const Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Padding(
+          padding: EdgeInsets.all(12),
+          child: MyWidget(
+              iconPath: 'assets/icons/calendar.svg', title: 'История\nпродаж'),
+        ),
+        Padding(
+          padding: EdgeInsets.all(12),
+          child: MyWidget(
+              iconPath: 'assets/icons/users.svg', title: 'Список\nдолжников'),
+        ),
+        Padding(
+          padding: EdgeInsets.all(12),
+          child: MyWidget(
+              iconPath: 'assets/icons/file-plus.svg', title: 'Мои\nрасходы'),
+        ),
+      ],
     );
   }
 }
 
 class MyWidget extends StatelessWidget {
-  final title;
-  final iconPath;
-  const MyWidget({super.key, this.title, this.iconPath});
+  final String title;
+  final String iconPath;
+  const MyWidget({super.key, required this.title, required this.iconPath});
 
   @override
   Widget build(BuildContext context) {
