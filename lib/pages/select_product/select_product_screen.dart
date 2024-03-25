@@ -4,7 +4,6 @@ import 'package:figma/pages/select_product/widgets/clothes_card.dart';
 import 'package:figma/pages/select_product/widgets/container_chips.dart';
 import 'package:figma/pages/select_product/widgets/search_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class SelectProductScreen extends StatefulWidget {
   const SelectProductScreen({super.key});

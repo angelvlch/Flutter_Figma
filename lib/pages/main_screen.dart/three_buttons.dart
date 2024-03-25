@@ -5,7 +5,7 @@ import 'package:flutter_svg/svg.dart';
 
 class ThreeButtons extends StatelessWidget {
   const ThreeButtons({super.key});
-// вынести все в виджет
+
   @override
   Widget build(BuildContext context) {
     return const Row(
@@ -51,8 +51,6 @@ class MyWidget extends StatelessWidget {
           title,
           textAlign: TextAlign.center,
           style: const TextStyle(
-            // fontFamily: 'Nuntino',
-            //color: Colors.red,
             fontSize: MyFontStyle.fontSizeBase,
             fontWeight: FontWeight.w600,
           ),

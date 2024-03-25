@@ -128,7 +128,7 @@ class _ClothesCardState extends State<ClothesCard> {
       children: [
         Text(
           widget.product.id,
-          style: TextStyle(
+          style: const TextStyle(
             fontFamily: MyFontStyle.fontFamily,
             fontSize: 16,
             fontWeight: FontWeight.w700,
@@ -169,110 +169,4 @@ class _ClothesCardState extends State<ClothesCard> {
       ],
     );
   }
-
-  /*  showBottomSheet(
-        enableDrag: false,
-        context: context,
-        builder: (context) {
-          return Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                height: 1,
-                color: Colors.grey.shade300,
-              ),
-              Container(
-                height: 72,
-                color: Colors.white,
-                width: MediaQuery.sizeOf(context).width,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Stack(
-                      children: [
-                        CircleAvatar(
-                          radius: 20,
-                          backgroundColor: Colors.white,
-                          child: CircleAvatar(
-                            radius: 18,
-                            backgroundImage:
-                                AssetImage(Foto.listPathFoto.first),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 32),
-                          child: CircleAvatar(
-                            radius: 20,
-                            backgroundColor: Colors.white,
-                            child: CircleAvatar(
-                              radius: 18,
-                              backgroundImage: AssetImage(Foto.listPathFoto[1]),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 64),
-                          child: CircleAvatar(
-                            radius: 20,
-                            backgroundColor: Colors.white,
-                            child: CircleAvatar(
-                              radius: 18,
-                              backgroundImage: AssetImage(Foto.listPathFoto[2]),
-                            ),
-                          ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 95, bottom: 14),
-                          child: CircleAvatar(
-                            radius: 13,
-                            backgroundColor: Colors.white,
-                            child: CircleAvatar(
-                              radius: 11,
-                              backgroundColor: Colors.blue,
-                              child: Text(
-                                '+2',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 12,
-                                    color: Colors.white),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const CountItemsScreen(),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            color: Colors.amber,
-                          ),
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 16, vertical: 12),
-                          child: const Row(children: [
-                            Text(
-                              'Выбрать 5 ',
-                              style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.w600),
-                            ),
-                            Icon(Icons.chevron_right_sharp),
-                          ]),
-                        ))
-                  ],
-                ),
-              ),
-            ],
-          );
-        });
-   */
 }
