@@ -7,7 +7,7 @@ import 'package:flutter_svg/svg.dart';
 
 class ClothesCard extends StatefulWidget {
   final Product product;
-  final void Function(bool? value) onChange;
+  final Function onChange;
   const ClothesCard({super.key, required this.product, required this.onChange});
 
   @override
@@ -16,12 +16,6 @@ class ClothesCard extends StatefulWidget {
 
 class _ClothesCardState extends State<ClothesCard> {
   bool? isChecked = false;
-
-  void onChange(bool? value) {
-    setState(() {
-      widget.product.isSelected = value!;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -105,12 +99,14 @@ class _ClothesCardState extends State<ClothesCard> {
                           const SizedBox(
                             width: 125,
                           ),
-                          Text('${widget.product.stockCount}',
-                              style: const TextStyle(
-                                fontFamily: MyFontStyle.fontFamily,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 14,
-                              )),
+                          Text(
+                            '${widget.product.stockCount}',
+                            style: const TextStyle(
+                              fontFamily: MyFontStyle.fontFamily,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                            ),
+                          ),
                         ],
                       ),
                     ],
@@ -142,7 +138,9 @@ class _ClothesCardState extends State<ClothesCard> {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
             activeColor: const Color.fromRGBO(74, 114, 255, 1),
             value: widget.product.isSelected,
-            onChanged: widget.onChange,
+            onChanged: (value) => {
+              widget.onChange(value),
+            },
           ),
         ),
       ],
